@@ -24,9 +24,13 @@ public class Problem2 {
         char[] output2 = solution2(input.toCharArray());
         System.out.println("output : " + String.valueOf(output2));
 
-        System.out.println("Answer 1 ============================");
-        char[] output3 = answer1(input.toCharArray());
+        System.out.println("Solution 3 ============================");
+        char[] output3 = solution3(input.toCharArray());
         System.out.println("output : " + String.valueOf(output3));
+
+        System.out.println("Answer 1 ============================");
+        char[] output4 = answer1(input.toCharArray());
+        System.out.println("output : " + String.valueOf(output4));
     }
 
     // move char by char to right until meet a space, then ignore the completed part behind
@@ -95,31 +99,67 @@ public class Problem2 {
         return input;
     }
 
+    // get word by word backward, and put into a new char array
+    public static char[] solution3(char[] input) {
+        char[] output = new char[input.length];
+        int outputComplete = 0;
+        int checkpoint = input.length - 1;
+        for (int i = input.length - 1; i >= 0; i--) {
+            if (i == 0 || input[i - 1] == ' ') {
+                char[] word = splitChar(input, i, checkpoint);
+
+                for (char w : word) {
+                    output[outputComplete] = w;
+                    outputComplete++;
+                }
+                if (outputComplete < output.length) {
+                    output[outputComplete] = ' ';
+                    outputComplete++;
+                }
+                System.out.println(String.valueOf(output));
+                checkpoint = checkpoint - word.length - 1;
+            }
+        }
+
+        return output;
+    }
+
+    public static char[] splitChar(char[] input, int startIndex, int endIndex) {
+
+        char[] output = new char[endIndex - startIndex + 1];
+
+        for (int i = 0; i < output.length; i++) {
+            output[i] = input[startIndex + i];
+        }
+
+        return output;
+    }
+
     // reverse each word then reverse all
     public static char[] answer1(char[] s) {
-        int i=0;
-        for(int j=0; j<s.length; j++){
-            if(s[j]==' '){
-                answer1_reverse(s, i, j-1);
-                i=j+1;
+        int i = 0;
+        for (int j = 0; j < s.length; j++) {
+            if (s[j] == ' ') {
+                answer1_reverse(s, i, j - 1);
+                i = j + 1;
                 System.out.println(String.valueOf(s));
             }
         }
 
-        answer1_reverse(s, i, s.length-1);
+        answer1_reverse(s, i, s.length - 1);
         System.out.println(String.valueOf(s));
 
-        answer1_reverse(s, 0, s.length-1);
+        answer1_reverse(s, 0, s.length - 1);
         System.out.println(String.valueOf(s));
 
         return s;
     }
 
-    public static char[] answer1_reverse(char[] s, int i, int j){
-        while(i<j){
+    public static char[] answer1_reverse(char[] s, int i, int j) {
+        while (i < j) {
             char temp = s[i];
-            s[i]=s[j];
-            s[j]=temp;
+            s[i] = s[j];
+            s[j] = temp;
             i++;
             j--;
         }

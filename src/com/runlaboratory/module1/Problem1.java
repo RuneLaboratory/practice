@@ -9,8 +9,6 @@ public class Problem1 {
     For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4]. How many different ways do you know to solve this problem?
     */
 
-    // [1,2,3,4,5,6,7]
-    // [5,6,7,1,2,3,4]
     public static void main(String[] args) {
         int[] output1 = solution1(8, 4);
         int[] output2 = solution2(7, 3);
