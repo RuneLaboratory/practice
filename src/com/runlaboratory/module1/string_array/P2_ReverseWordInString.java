@@ -35,7 +35,7 @@ public class P2_ReverseWordInString {
 
     // move char by char to right until meet a space, then ignore the completed part behind
     // move the space next to the check point, then repeat the rest
-    public static char[] solution1(char[] input) {
+    private static char[] solution1(char[] input) {
 
         int checkPoint = input.length - 1;
         int wordLength = 0;
@@ -68,7 +68,7 @@ public class P2_ReverseWordInString {
 
 
     // reverse the input, then flip back each word
-    public static char[] solution2(char[] input) {
+    private static char[] solution2(char[] input) {
 
         for (int i = 0; i < input.length / 2; i++) {
             char temp = input[i];
@@ -100,7 +100,7 @@ public class P2_ReverseWordInString {
     }
 
     // get word by word backward, and put into a new char array
-    public static char[] solution3(char[] input) {
+    private static char[] solution3(char[] input) {
         char[] output = new char[input.length];
         int outputComplete = 0;
         int checkpoint = input.length - 1;
@@ -124,7 +124,7 @@ public class P2_ReverseWordInString {
         return output;
     }
 
-    public static char[] splitChar(char[] input, int startIndex, int endIndex) {
+    private static char[] splitChar(char[] input, int startIndex, int endIndex) {
 
         char[] output = new char[endIndex - startIndex + 1];
 
@@ -134,7 +134,7 @@ public class P2_ReverseWordInString {
     }
 
     // reverse each word then reverse all
-    public static char[] answer1(char[] s) {
+    private static char[] answer1(char[] s) {
         int i = 0;
         for (int j = 0; j < s.length; j++) {
             if (s[j] == ' ') {
@@ -153,7 +153,7 @@ public class P2_ReverseWordInString {
         return s;
     }
 
-    public static char[] answer1_reverse(char[] s, int i, int j) {
+    private static char[] answer1_reverse(char[] s, int i, int j) {
         while (i < j) {
             char temp = s[i];
             s[i] = s[j];

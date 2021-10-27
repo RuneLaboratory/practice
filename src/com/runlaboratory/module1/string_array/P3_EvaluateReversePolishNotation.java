@@ -29,7 +29,7 @@ public class P3_EvaluateReversePolishNotation {
     }
 
     // use stack object
-    public static int solution1(String[] tokens) {
+    private static int solution1(String[] tokens) {
 
         String operators = "+-*/";
 
@@ -66,7 +66,7 @@ public class P3_EvaluateReversePolishNotation {
     }
 
     // use array
-    public static int solution2(String[] tokens) {
+    private static int solution2(String[] tokens) {
 
         String operators = "+-*/";
 
@@ -104,7 +104,7 @@ public class P3_EvaluateReversePolishNotation {
         return stack[stackCount - 1];
     }
 
-    public static int answer1(String[] tokens) {
+    private static int answer1(String[] tokens) {
         int returnValue;
         String operators = "+-*/";
 

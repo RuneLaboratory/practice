@@ -57,7 +57,7 @@ public class P1_RotateArrayToRight {
     }
 
     // In a straightforward way, we can create a new array and then copy elements to the new array
-    public static void answer1(int[] nums, int k) {
+    private static void answer1(int[] nums, int k) {
         if (k > nums.length)
             k = k % nums.length;
 
@@ -77,7 +77,7 @@ public class P1_RotateArrayToRight {
     }
 
     // Bubble Rotate
-    public static void answer2(int[] arr, int order) {
+    private static void answer2(int[] arr, int order) {
         if (arr == null || order < 0) {
             throw new IllegalArgumentException("Illegal argument!");
         }
@@ -96,7 +96,7 @@ public class P1_RotateArrayToRight {
     // 2. Reverse first part: 4,3,2,1,5,6
     // 3. Reverse second part: 4,3,2,1,6,5
     // 4. Reverse the whole array: 5,6,1,2,3,4
-    public static void answer3(int[] arr, int order) {
+    private static void answer3(int[] arr, int order) {
         if (arr == null || arr.length == 0 || order < 0) {
             throw new IllegalArgumentException("Illegal argument!");
         }
@@ -114,7 +114,7 @@ public class P1_RotateArrayToRight {
 
     }
 
-    public static void answer3_reverse(int[] arr, int left, int right) {
+    private static void answer3_reverse(int[] arr, int left, int right) {
         if (arr == null || arr.length == 1)
             return;
 
