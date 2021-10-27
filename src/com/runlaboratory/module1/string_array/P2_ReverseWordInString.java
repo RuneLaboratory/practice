@@ -1,6 +1,6 @@
 package com.runlaboratory.module1.string_array;
 
-public class Problem2 {
+public class P2_ReverseWordInString {
 
     /*
     Given an input string, reverse the string word by word. A word is defined as a sequence of non-space characters.

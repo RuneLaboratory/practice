@@ -2,7 +2,7 @@ package com.runlaboratory.module1.string_array;
 
 import java.util.stream.IntStream;
 
-public class Problem1 {
+public class P1_RotateArrayToRight {
 
     /*
     Rotate an array of n elements to the right by k steps.

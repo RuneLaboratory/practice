@@ -2,7 +2,7 @@ package com.runlaboratory.module1.string_array;
 
 import java.util.Stack;
 
-public class Problem3 {
+public class P3_EvaluateReversePolishNotation {
 
     /*
     Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, /.
