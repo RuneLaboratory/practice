@@ -1,4 +1,4 @@
-package com.runlaboratory.module1;
+package com.runlaboratory.module1.string_array;
 
 public class Problem2 {
 
@@ -128,9 +128,7 @@ public class Problem2 {
 
         char[] output = new char[endIndex - startIndex + 1];
 
-        for (int i = 0; i < output.length; i++) {
-            output[i] = input[startIndex + i];
-        }
+        System.arraycopy(input, startIndex + 0, output, 0, output.length);
 
         return output;
     }

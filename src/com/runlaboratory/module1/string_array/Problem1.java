@@ -1,4 +1,4 @@
-package com.runlaboratory.module1;
+package com.runlaboratory.module1.string_array;
 
 import java.util.stream.IntStream;
 

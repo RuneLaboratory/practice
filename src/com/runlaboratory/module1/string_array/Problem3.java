@@ -1,4 +1,4 @@
-package com.runlaboratory.module1;
+package com.runlaboratory.module1.string_array;
 
 import java.util.Stack;
 
@@ -33,7 +33,7 @@ public class Problem3 {
 
         String operators = "+-*/";
 
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
 
         for (String t : tokens) {
             if (!operators.contains(t)) {
@@ -105,10 +105,10 @@ public class Problem3 {
     }
 
     public static int answer1(String[] tokens) {
-        int returnValue = 0;
+        int returnValue;
         String operators = "+-*/";
 
-        Stack<String> stack = new Stack<String>();
+        Stack<String> stack = new Stack<>();
 
         for (String t : tokens) {
             if (!operators.contains(t)) { //push to stack if it is a number
