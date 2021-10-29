@@ -15,35 +15,25 @@ public class P1_SetMatrixZeroes {
 
     public static void main(String[] args) {
 
-        Random random = new Random();
-        int rand1 = random.nextInt(8) + 1;
-        int rand2 = random.nextInt(8) + 1;
-
-        int[][] matrix = new int[rand1][rand2];
-
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = random.nextInt(2) + 0;
-            }
-        }
-
+        int[][] matrix = genMatrix();
+        System.out.println(matrix.length + " * " + matrix[0].length + " matrix");
         printMatrix(matrix);
-        int[][] output = solution1(cloneMatrix(matrix));
-        printMatrix(output);
 
-        int[][] matrix2 = genMatrix();
-        printMatrix(matrix2);
-        int[][] output2 = solution1(cloneMatrix(matrix2));
+        System.out.println("Solution 1 ============================");
+        int[][] output1 = solution1(cloneMatrix(matrix));
+        printMatrix(output1);
+
+        System.out.println("Solution 2 ============================");
+        int[][] output2 = solution2(cloneMatrix(matrix));
         printMatrix(output2);
 
-//        int[][] answer = cloneMatrix(matrix2);
-//        answer(answer);
-//        printMatrix(answer);
+        System.out.println("Answer ============================");
+        int[][] answer = cloneMatrix(matrix);
+        answer(answer);
+        printMatrix(answer);
     }
 
     private static void printMatrix(int[][] matrix) {
-
-        System.out.println(matrix.length + " * " + matrix[0].length + " matrix");
 
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
@@ -63,10 +53,10 @@ public class P1_SetMatrixZeroes {
 
     private static int[][] genMatrix() {
         int matrix[][] = {
-                {1, 1, 1, 0},
                 {1, 1, 1, 1},
+                {1, 1, 0, 1},
                 {1, 1, 1, 1},
-                {1, 1, 1, 1}
+                {0, 1, 1, 1}
         };
 
         return matrix;
@@ -105,6 +95,65 @@ public class P1_SetMatrixZeroes {
 
         return matrix;
     }
+
+    // use first row and column to save setZero flag
+    public static int[][] solution2(int[][] matrix) {
+
+        boolean isFirstRowZero = false;
+        boolean isColumnRowZero = false;
+
+        for (int c = 0; c < matrix[0].length; c++) {
+            if (matrix[0][c] == 0) {
+                isFirstRowZero = true;
+            }
+        }
+
+        for (int r = 0; r < matrix.length; r++) {
+            if (matrix[r][0] == 0) {
+                isColumnRowZero = true;
+            }
+        }
+
+        for (int r = 0; r < matrix.length; r++) {
+            for (int c = 0; c < matrix[r].length; c++) {
+                if (matrix[r][c] == 0) {
+                    matrix[r][0] = 0;
+                    matrix[0][c] = 0;
+                }
+            }
+        }
+
+        for (int r = 1; r < matrix.length; r++) {
+            if (matrix[r][0] == 0) {
+                for (int c = 1; c < matrix[r].length; c++) {
+                    matrix[r][c] = 0;
+                }
+            }
+        }
+
+        for (int c = 1; c < matrix[0].length; c++) {
+            if (matrix[0][c] == 0) {
+                for (int r = 1; r < matrix.length; r++) {
+                    matrix[r][c] = 0;
+                }
+            }
+        }
+
+        if (isFirstRowZero) {
+            for (int c = 0; c < matrix[0].length; c++) {
+                matrix[0][c] = 0;
+            }
+        }
+
+        if (isColumnRowZero) {
+            for (int r = 0; r < matrix.length; r++) {
+                matrix[r][0] = 0;
+            }
+        }
+
+        return matrix;
+    }
+
 
     private static void answer(int[][] matrix) {
         boolean firstRowZero = false;
