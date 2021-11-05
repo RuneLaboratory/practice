@@ -9,7 +9,7 @@ public class P1_PreorderBinaryTreeTraversal {
     Preorder binary tree traversal is a classic interview problem. The key to solve this problem is using a stack to
     store left and right children, and push right child first so that it is processed after the left child.
 
-    given a tree, and it will return the list of value in preorder (Root, Left, Right)
+    Given a tree, and it will return the list of value in preorder (Root, Left, Right)
     */
 
     public static void main(String[] args) {
@@ -33,14 +33,17 @@ public class P1_PreorderBinaryTreeTraversal {
         root.left = level2_1;
         root.right = level2_2;
 
+        System.out.println("===== solution 1 =====");
         System.out.println(solution1(root));
 
+        System.out.println("===== answer 1 =====");
         System.out.println(answer1(root));
+        System.out.println("===== answer 2 =====");
         System.out.println(answer2(root));
     }
 
     // Push to stack if node has right, get back the next right node from stack later
-    public static ArrayList<Integer> solution1(TreeNode root) {
+    private static ArrayList<Integer> solution1(TreeNode root) {
 
         ArrayList<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
@@ -68,7 +71,7 @@ public class P1_PreorderBinaryTreeTraversal {
         return result;
     }
 
-    public static void printStack(Stack<TreeNode> s) {
+    private static void printStack(Stack<TreeNode> s) {
         System.out.print("stack ");
         for (TreeNode n : s) {
             System.out.print(n.val + " ");
@@ -119,16 +122,5 @@ public class P1_PreorderBinaryTreeTraversal {
         System.out.println(root.val);
         preOrder(root.left);
         preOrder(root.right);
-    }
-}
-
-class TreeNode {
-
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int val) {
-        this.val = val;
     }
 }
