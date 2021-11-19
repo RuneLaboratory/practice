@@ -44,7 +44,8 @@ public class EditDistance {
                 "abch", "afgh",
                 "abcd", "dcba",
                 "abcdefg", "bcdefag",
-                "abcdefg", "gefcdab"
+                "abcdefg", "gefcdab",
+                "abcde","wcda"
         };
 
         for (int i = 0; i < words.length; i = i + 2) {
@@ -93,7 +94,7 @@ public class EditDistance {
             }
             group.clear();
 
-            int i2 = (diffSize - firstIndexMove > 0) ? diffSize - firstIndexMove : 0;
+            int i2 = Math.max(diffSize - firstIndexMove, 0);
             int j2 = (secIndexMove < 0) ? (secIndexMove * -1) : 0;
             while (j2 < shorterWord.length()) {
                 if (longerWord.charAt(i2) == shorterWord.charAt(j2)) {
@@ -122,7 +123,7 @@ public class EditDistance {
 
             return solution1(word1Remain[0].trim(), word2Remain[0].trim()) + solution1(word1Remain[1].trim(), word2Remain[1].trim());
         } else {
-            return word1.length() > word2.length() ? word1.length() : word2.length();
+            return Math.max(word1.length(), word2.length());
         }
     }
 
@@ -160,11 +161,22 @@ public class EditDistance {
                     min = delete > min ? min : delete;
                     dp[i + 1][j + 1] = min;
                 }
+                //printDP(dp);
             }
         }
 
         return dp[len1][len2];
     }
+
+//    private static void printDP(int[][] dp){
+//        System.out.println("-------------------------------");
+//        for(int i=0;i<dp.length;i++){
+//            for(int j=0;j<dp[i].length;j++){
+//                System.out.print("[" + dp[i][j] + "]");
+//            }
+//            System.out.println("");
+//        }
+//    }
 
     private static int answer2(String word1, String word2) {
         int m = word1.length();
