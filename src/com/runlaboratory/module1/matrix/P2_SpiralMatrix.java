@@ -55,18 +55,31 @@ public class P2_SpiralMatrix {
 
         System.out.println("my ans  : " + solution1(matrix1));
         System.out.println("answer1 : " + answer1(matrix1));
+        System.out.println("answer2 : " + answer2(matrix1));
+
         System.out.println("my ans  : " + solution1(matrix2));
         System.out.println("answer1 : " + answer1(matrix2));
+        System.out.println("answer2 : " + answer2(matrix2));
+
         System.out.println("my ans  : " + solution1(matrix3));
         System.out.println("answer1 : " + answer1(matrix3));
+        System.out.println("answer2 : " + answer2(matrix3));
+
         System.out.println("my ans  : " + solution1(matrix4));
         System.out.println("answer1 : " + answer1(matrix4));
+        System.out.println("answer2 : " + answer2(matrix4));
+
         System.out.println("my ans  : " + solution1(matrix5));
         System.out.println("answer1 : " + answer1(matrix5));
+        System.out.println("answer2 : " + answer2(matrix5));
+
         System.out.println("my ans  : " + solution1(matrix6));
         System.out.println("answer1 : " + answer1(matrix6));
+        System.out.println("answer2 : " + answer2(matrix6));
+
         System.out.println("my ans  : " + solution1(matrix7));
         System.out.println("answer1 : " + answer1(matrix7));
+        System.out.println("answer2 : " + answer2(matrix7));
     }
 
     // L shape as a loop
@@ -205,5 +218,56 @@ public class P2_SpiralMatrix {
         return result;
     }
 
-    // TODO more answer
+    // Recursively solve this problem. The solution's performance is not better than Solution 1
+    private static ArrayList<Integer> answer2(int[][] matrix) {
+        if(matrix==null || matrix.length==0)
+            return new ArrayList<>();
+
+        return answer2_spiralOrder(matrix,0,0,matrix.length,matrix[0].length);
+    }
+
+
+    private static ArrayList<Integer> answer2_spiralOrder(int [][] matrix, int x, int y, int m, int n){
+        ArrayList<Integer> result = new ArrayList<>();
+
+        if(m<=0||n<=0)
+            return result;
+
+        //only one element left
+        if(m==1&&n==1) {
+            result.add(matrix[x][y]);
+            return result;
+        }
+
+        //top - move right
+        for(int i=0;i<n-1;i++){
+            result.add(matrix[x][y++]);
+        }
+
+        //right - move down
+        for(int i=0;i<m-1;i++){
+            result.add(matrix[x++][y]);
+        }
+
+        //bottom - move left
+        if(m>1){
+            for(int i=0;i<n-1;i++){
+                result.add(matrix[x][y--]);
+            }
+        }
+
+        //left - move up
+        if(n>1){
+            for(int i=0;i<m-1;i++){
+                result.add(matrix[x--][y]);
+            }
+        }
+
+        if(m==1||n==1)
+            result.addAll(answer2_spiralOrder(matrix, x, y, 1, 1));
+        else
+            result.addAll(answer2_spiralOrder(matrix, x+1, y+1, m-2, n-2));
+
+        return result;
+    }
 }
