@@ -1,4 +1,4 @@
-package com.runlaboratory.module1.dynamic_programming;
+package com.runelaboratory.module1.dynamic_programming;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,18 +11,7 @@ public class EditDistance {
     "a" and "b" is 1, the edit distance between "abc" and "def" is 3. This post analyzes how to calculate edit
     distance by using dynamic programming.
 
-    Let dp[i][j] stands for the edit distance between two strings with length i and j, i.e., word1[0,...,i-1] and word2[0,...,j-1].
-    There is a relation between dp[i][j] and dp[i-1][j-1]. Let's say we transform from one string to another.
-    The first string has length i and it's last character is "x"; the second string has length j and its last
-    character is "y". The following diagram shows the relation.
 
-    1. if x == y, then dp[i][j] == dp[i-1][j-1]
-    2. if x != y, and we insert y for word1, then dp[i][j] = dp[i][j-1] + 1
-    3. if x != y, and we delete x for word1, then dp[i][j] = dp[i-1][j] + 1
-    4. if x != y, and we replace x with y for word1, then dp[i][j] = dp[i-1][j-1] + 1
-    5. When x!=y, dp[i][j] is the min of the three situations.
-
-    Initial condition: dp[i][0] = i, dp[0][j] = j
     */
 
     public static void main(String[] args) {
@@ -127,6 +116,21 @@ public class EditDistance {
         }
     }
 
+    /* Use a table to calculate distance
+
+    Let dp[i][j] stands for the edit distance between two strings with length i and j, i.e., word1[0,...,i-1] and word2[0,...,j-1].
+    There is a relation between dp[i][j] and dp[i-1][j-1]. Let's say we transform from one string to another.
+    The first string has length i and it's last character is "x"; the second string has length j and its last
+    character is "y". The following diagram shows the relation.
+
+        1. if x == y, then dp[i][j] == dp[i-1][j-1]
+        2. if x != y, and we insert y for word1, then dp[i][j] = dp[i][j-1] + 1
+        3. if x != y, and we delete x for word1, then dp[i][j] = dp[i-1][j] + 1
+        4. if x != y, and we replace x with y for word1, then dp[i][j] = dp[i-1][j-1] + 1
+        5. When x!=y, dp[i][j] is the min of the three situations.
+
+    Initial condition: dp[i][0] = i, dp[0][j] = j
+    */
     private static int answer1(String word1, String word2) {
         int len1 = word1.length();
         int len2 = word2.length();

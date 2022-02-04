@@ -1,4 +1,4 @@
-package com.runlaboratory.module1.linkedlist;
+package com.runelaboratory.module1.linkedlist;
 
 public class P1_ImplementStackUsingArray {
 

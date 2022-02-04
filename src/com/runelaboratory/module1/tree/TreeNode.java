@@ -1,4 +1,4 @@
-package com.runlaboratory.module1.tree;
+package com.runelaboratory.module1.tree;
 
 public class TreeNode {
 

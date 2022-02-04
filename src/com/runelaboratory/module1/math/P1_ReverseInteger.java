@@ -1,4 +1,4 @@
-package com.runlaboratory.module1.math;
+package com.runelaboratory.module1.math;
 
 public class P1_ReverseInteger {
 

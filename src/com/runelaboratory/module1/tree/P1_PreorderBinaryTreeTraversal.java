@@ -1,4 +1,4 @@
-package com.runlaboratory.module1.tree;
+package com.runelaboratory.module1.tree;
 
 import java.util.ArrayList;
 import java.util.Stack;

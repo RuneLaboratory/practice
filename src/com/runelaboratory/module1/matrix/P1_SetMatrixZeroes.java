@@ -1,4 +1,4 @@
-package com.runlaboratory.module1.matrix;
+package com.runelaboratory.module1.matrix;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.runlaboratory.module1.string_array;
+package com.runelaboratory.module1.string_array;
 
 public class P2_ReverseWordInString {
 
