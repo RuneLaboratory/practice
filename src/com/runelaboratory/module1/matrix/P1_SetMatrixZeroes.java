@@ -1,7 +1,5 @@
 package com.runelaboratory.module1.matrix;
 
-import java.util.Random;
-
 public class P1_SetMatrixZeroes {
 
     /*
@@ -76,7 +74,7 @@ public class P1_SetMatrixZeroes {
                 }
             }
         }
-
+        
         for (int r = 0; r < isRowSetZero.length; r++) {
             if (isRowSetZero[r]) {
                 for (int c = 0; c < matrix[r].length; c++) {
