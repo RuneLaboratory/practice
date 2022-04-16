@@ -12,6 +12,23 @@ public class P1_RotateArrayToRight {
     public static void main(String[] args) {
         int[] output1 = solution1(8, 4);
         int[] output2 = solution2(7, 3);
+
+        int[] inputArray1 = { 1, 2, 3, 4, 5, 6, 7 };
+        int[] inputArray2 = { 1, 2, 3, 4, 5, 6, 7 };
+        int[] inputArray3 = { 1, 2, 3, 4, 5, 6, 7 };
+
+        System.out.println("===== solution 1 =====");
+        System.out.println(output1);
+        System.out.println("===== solution 2 =====");
+        System.out.println(output2);
+        System.out.println("===== answer 1 =====");
+        printArray(answer1(inputArray1, 3));
+        System.out.println("===== answer 2 =====");
+        answer2(inputArray2, 3);
+        printArray(inputArray2);
+        System.out.println("===== answer 3 =====");
+        answer3(inputArray3, 3);
+        printArray(inputArray3);
     }
 
     // move to right one step by step
@@ -50,14 +67,14 @@ public class P1_RotateArrayToRight {
     }
 
     private static void printArray(int[] array) {
-        System.out.println("");
         for (int num : array) {
             System.out.print(num + ", ");
         }
+        System.out.println("");
     }
 
     // In a straightforward way, we can create a new array and then copy elements to the new array
-    private static void answer1(int[] nums, int k) {
+    private static int[] answer1(int[] nums, int k) {
         if (k > nums.length)
             k = k % nums.length;
 
@@ -74,6 +91,7 @@ public class P1_RotateArrayToRight {
         }
 
         System.arraycopy(result, 0, nums, 0, nums.length);
+        return result;
     }
 
     // Bubble Rotate
