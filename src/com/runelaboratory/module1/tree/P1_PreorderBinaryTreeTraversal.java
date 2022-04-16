@@ -40,6 +40,8 @@ public class P1_PreorderBinaryTreeTraversal {
         System.out.println(answer1(root));
         System.out.println("===== answer 2 =====");
         System.out.println(answer2(root));
+        System.out.println("===== answer 3 preOrder =====");
+        preOrder(root);
     }
 
     // Push to stack if node has right, get back the next right node from stack later
@@ -117,7 +119,7 @@ public class P1_PreorderBinaryTreeTraversal {
     }
 
     // Recursive version
-    private void preOrder(TreeNode root) {
+    private static void preOrder(TreeNode root) {
         if (root == null) return;
         System.out.println(root.val);
         preOrder(root.left);
